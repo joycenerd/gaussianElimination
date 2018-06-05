@@ -12,7 +12,7 @@
 #define DEBUG 0
 using namespace std;
 
-float augmentMatrix[N][N];
+float augmentMatrix[N][N],determinant;
 int n;
 int flag,swapTimes;
 
@@ -47,13 +47,17 @@ void toOne(int row){
         if(flag) toOne(row);
     }
     //printf("divisor=%f\n",divisor);
-    if(flag) for(j=0;j<n+1;j++) augmentMatrix[row][j]/=divisor;
+    if(flag){
+        determinant*=divisor;
+        for(j=0;j<n+1;j++) augmentMatrix[row][j]/=divisor;
+    }
 }
 
 void gaussianElimination(){
     int row=0;
     int i,j;
     float divisor;
+    determinant=1;
     while(row<n){
         for(j=0;j<n;j++){
             if(abs(augmentMatrix[row][j])>0.0001){
@@ -87,12 +91,8 @@ void gaussianElimination(){
         row++;
     }
     float x[N];
-    float determinant=1;
     if(row==n){
-        for(i=0;i<n;i++){
-            x[i]=augmentMatrix[i][n];
-            determinant*=x[i];
-        }
+        for(i=0;i<n;i++) x[i]=augmentMatrix[i][n];
         if(swapTimes%2==1) determinant=-determinant;
         printf("The determinant is %f\n",determinant);
         printf("The solution vector is: ");
