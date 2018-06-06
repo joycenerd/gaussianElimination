@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:gaussianElimination.xcodeproj">
+      location = "group:../ex7_sample.in">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>

@@ -1,0 +1,14 @@
+Case 0:
+The determinant is 4.000000
+The solution vector is: 1.000000 1.000000 -0.000000 
+This is a valid solution
+======================================================
+Case 1:
+The determinant is 0
+This equation is linear dependence
+======================================================
+Case 2:
+The determinant is -8.000000
+The solution vector is: 1.000000 0.000000 -1.000000 
+This is a valid solution
+======================================================
