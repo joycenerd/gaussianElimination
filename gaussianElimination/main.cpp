@@ -41,7 +41,7 @@ void swapRow(int row){
     float temp[N];
     flag=0;
     for(i=row;i<n;i++){
-        if(augmentMatrix[i][row]!=0){
+        if(abs(augmentMatrix[i][row])>0.0001){
             for(j=0;j<n+1;j++){
                 temp[j]=augmentMatrix[row][j];
                 augmentMatrix[row][j]=augmentMatrix[i][j];
@@ -117,7 +117,7 @@ void gaussianElimination(){
         }
 #endif
         row++;
-    }
+    }  
     float x[N];
     //如果有解救把行列式值、向量解和是否為正確解輸出到outputFile
     if(row==n){
@@ -138,7 +138,7 @@ int main()
 {
     FILE *inputFile;  //輸入檔
     //開檔讀檔
-    inputFile=fopen("/Users/joycechin/Desktop/EX7/gaussianElimination/ex7_sample.in","r");
+    inputFile=fopen("/Users/joycechin/Desktop/EX7/gaussianElimination/gaussianElimination/ex7_sample.in","r");
     assert(inputFile!=NULL);
     outputFile=fopen("/Users/joycechin/Desktop/EX7/gaussianElimination/gaussianElimination/output.out","w");
     assert(outputFile!=NULL);
